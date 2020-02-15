@@ -1,0 +1,30 @@
+# This program calculates an insurance discount
+
+DISCOUNT_PERCENT = .1
+
+# Insurance Rate + Validation
+
+insuranceRate = int(input("\nPlease enter insurance rate: "))
+if insuranceRate < 1 or insuranceRate > 2999:
+    insuranceRate = int(input("\nRate must be greater than 0 and less than 3000: "))
+
+# Age + Validation
+
+insuredAge = int(input("\nPlease enter age of insured driver: "))
+if insuredAge < 16 or insuredAge > 90:
+    insuredAge = int(input("\nDriver must be between age 16 and 90"))
+
+# Accident Number + Validation
+
+accidentCount = int(input("\nHow many collisions has the insured been involved in: "))
+if accidentCount < 0 or accidentCount > 5:
+    accidentCount = int(input("\nMay not have less than 0 or more than 5 accidents: "))
+
+# Calculate Discount
+
+if insuredAge >= 30 and accidentCount <= 5:
+    discountRate = insuranceRate * DISCOUNT_PERCENT
+else:
+    print("\nI'm sorry, you do not qualify for a discount at this time.")
+
+print("\nCongratulations! You are entitled to a $", format(discountRate, '.2f'), "discount!")
